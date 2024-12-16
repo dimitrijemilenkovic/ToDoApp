@@ -1,26 +1,22 @@
-package rs.metropolitan.todoapp
+package rs.metropolitan.todoapp.presentation.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.rememberBottomSheetScaffoldState
-import androidx.compose.material3.rememberDrawerState
-import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
+import androidx.lifecycle.viewmodel.compose.viewModel
+import dagger.hilt.android.AndroidEntryPoint
+import rs.metropolitan.todoapp.data.TaskDummyData
+import rs.metropolitan.todoapp.data.network.ApiService
+import rs.metropolitan.todoapp.data.repository.TaskRepository
+import rs.metropolitan.todoapp.presentation.screens.MainScreen
 import rs.metropolitan.todoapp.presentation.ui.theme.ToDoAppTheme
-import java.lang.reflect.Modifier
+import rs.metropolitan.todoapp.presentation.viewmodels.TaskViewModel
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +26,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    MainScreen()
 
                 }
             }
